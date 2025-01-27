@@ -52,4 +52,16 @@ class Node {
 let amy = new Node('amy', [new Node('bob'), new Node('barb'), new Node ('barry')])
 let htmlEl = new Node('html', [new Node('head', [new Node('title'), new Node('body', [new Node('ul', [new Node('li'), new Node('li2')])])])])
 
-//tree traversal depth first search
+//Tree class
+
+class Tree {
+    constructor(root) {
+        this.root = root;    
+    }
+    findInTreeDFS(val) {
+        return this.root.findDFS(val)
+    }
+    findInTreeBFS(val) {
+        return this.root.findBFS(val)
+    }
+}
