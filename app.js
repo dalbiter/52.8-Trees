@@ -21,15 +21,29 @@ class Node {
         this.val = val;
         this.children = children;
     }
-    find(val) {
+    findDFS(val) {
         const toVisitStack = [this];
         while(toVisitStack.length) {
             const current = toVisitStack.pop();
+            console.log("Visiting:", current.val)
             if (current.val === val) {
                 return current;    
             }
             for (let child of current.children) {
                 toVisitStack.push(child)
+            }
+        }
+    }
+    findBFS(val) {
+        const toVisitQueue = [this];
+        while(toVisitQueue.length) {
+            const current = toVisitQueue.shift();
+            console.log("Visiting:", current.val)
+            if (current.val === val) {
+                return current;    
+            }
+            for (let child of current.children) {
+                toVisitQueue.push(child)
             }
         }
     }
@@ -39,9 +53,3 @@ let amy = new Node('amy', [new Node('bob'), new Node('barb'), new Node ('barry')
 let htmlEl = new Node('html', [new Node('head', [new Node('title'), new Node('body', [new Node('ul', [new Node('li'), new Node('li2')])])])])
 
 //tree traversal depth first search
-const sal = {
-    hobbies: {
-        sailing: ['dingy', 'keel'],
-        cooking: 'salad'
-    }
-}
